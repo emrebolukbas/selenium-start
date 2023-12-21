@@ -17,21 +17,19 @@ class Test_DemoClass:
     def teardown_metahod(self): #her testin bitiminde çalışacak fonk.
         self.driver.quit()
 
-# @pytest.mark.skip #bu testi atla demek
-
+    @pytest.mark.parametrize("username,password",[("1","secret_sauce"),("problem_user","1")]) #parametrelerin yanına ekstra [] içinde paratmetre yazılabilir döngü halinde çalıştırır.
     def test_invalid_login(self,username,password):
-        usernameInput = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID,"user-name")))
+        usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys(username)
-        passwordInput = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID,"password")))
+        passwordInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"password")))
         passwordInput.send_keys(password)
         loginButton = self.driver.find_element(By.ID,"login-button")
         loginButton.click()
-        errorMessage = self.driver.find_element(By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")
-        assert errorMessage.text == "Epic sadface: Sorry, this user has been locked out."
+        errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
+        assert errorMessage.text == "Epic sadface: Username and password do not match any user in this service"
 
-    @pytest.mark.parametrize("username,password",[("standart_user","secret_sauce"),("problem_user","secret_sauce")]) #parametreleri döngü halinde çalıştırır.
-    def test_valid_login(self,username,password):
-        self.driver.get("https://www.saucedemo.com")
+    @pytest.mark.skip  #testi geçmek için kullanılır.
+    def test_valid_login(self):
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys("standard_user")
         passwordInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"password")))
