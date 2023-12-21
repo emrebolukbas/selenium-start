@@ -27,7 +27,7 @@ class Test_SauceDemo:
         print(f"Test Sonucu: {testResult}")
 
         
-    def valid_login(self):
+    def test_valid_login(self):
         self.driver.get("https://www.saucedemo.com")
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys("standard_user")
