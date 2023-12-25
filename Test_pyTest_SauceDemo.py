@@ -79,7 +79,7 @@ class Test_sauceDemoProducts:
         self.driver.quit()
 
     #1. case = ürün sepete ekleniyor mu?
-    @pytest.mark.parametrize("username_param, password_param", [("standard_user", "secret_sauce")])
+    @pytest.mark.parametrize("username_param, password_param", [("standard_user", "secret_sauce"),("error_user","secret_sauce")])
     def test_added_Products(self,username_param,password_param):
         userName = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, "user-name")))
         userName.send_keys(username_param)
