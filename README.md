@@ -7,8 +7,11 @@ organize ve bakımı kolay hale getirmenin güçlü bir yoludur. Bu rehberde, a�
 Temel Dekoratörler:
 -----
 @pytest.fixture: Test fonksiyonları için bağımlılıklar oluşturmak için kullanılır.
+
 @pytest.mark.parametrize: Farklı parametrelerle bir test fonksiyonunu tekrar tekrar çalıştırmak için kullanılır.
+
 @pytest.mark.skip: Belirli bir test fonksiyonunu veya sınıfını atlamak için kullanılır.
+
 @pytest.mark.xfail: Bir test fonksiyonunun beklendiği gibi başarısız olmasını beklemek için kullanılır.
 
 Gelişmiş Dekoratörler:
