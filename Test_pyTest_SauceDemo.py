@@ -5,6 +5,7 @@ from time import sleep
 from selenium.webdriver.support.wait import WebDriverWait #ilgili driverı bekleten yapı
 from selenium.webdriver.support import expected_conditions as ec #beklenen koşullar
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 import pytest
 
 
@@ -78,11 +79,12 @@ class Test_sauceDemoProducts:
         self.driver.quit()
 
     #1. case = ürün sepete ekleniyor mu?
-    def test_added_Products(self):
+    @pytest.mark.parametrize("username_param, password_param", [("standard_user", "secret_sauce")])
+    def test_added_Products(self,username_param,password_param):
         userName = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, "user-name")))
-        userName.send_keys("standard_user")
+        userName.send_keys(username_param)
         password = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, "password")))
-        password.send_keys("secret_sauce")
+        password.send_keys(password_param)
         loginButtton = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, 'login-button')))
         loginButtton.click()
         current_url = self.driver.current_url
