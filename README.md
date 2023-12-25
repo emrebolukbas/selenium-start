@@ -17,5 +17,7 @@ Temel Dekoratörler:
 Gelişmiş Dekoratörler:
 ----
 @pytest.hookimpl: PyTest'in kendi kancalarını özelleştirmek için kullanılır.
+
 @pytest.fixture_scope: Bir fikstürün kapsamını (fonksiyon, modül, oturum vb.) ayarlamak için kullanılır.
+
 @pytest.autouse: Her test fonksiyonu çalıştırılmadan önce otomatik olarak yürütülen bir fonksiyon tanımlamak için kullanılır.
