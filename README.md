@@ -5,11 +5,12 @@ dair kapsamlı bir rehber sunar. Dekoratörler, test kodunuzu daha okunabilir,
 organize ve bakımı kolay hale getirmenin güçlü bir yoludur. Bu rehberde, aşağıdakileri de içeren çeşitli dekoratörleri keşfedeceksiniz:
 
 Temel Dekoratörler:
-----
+-----
 @pytest.fixture: Test fonksiyonları için bağımlılıklar oluşturmak için kullanılır.
 @pytest.mark.parametrize: Farklı parametrelerle bir test fonksiyonunu tekrar tekrar çalıştırmak için kullanılır.
 @pytest.mark.skip: Belirli bir test fonksiyonunu veya sınıfını atlamak için kullanılır.
 @pytest.mark.xfail: Bir test fonksiyonunun beklendiği gibi başarısız olmasını beklemek için kullanılır.
+
 Gelişmiş Dekoratörler:
 ----
 @pytest.hookimpl: PyTest'in kendi kancalarını özelleştirmek için kullanılır.
