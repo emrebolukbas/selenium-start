@@ -108,14 +108,14 @@ class Test_sauceDemoProducts:
             firstTest = True
         else:
             firstTest = False
-        addToCart1 = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID,"add-to-cart-sauce-labs-backpack")))
+        addToCart1 = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, c.ADD_TO_CART_1)))
         addToCart1.click()
         cart = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.CLASS_NAME, c.CART_TEXT)))
         if (cart.text == "1"):
             pass
         else:
             print("product not added")
-        addToCart2 = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID,"add-to-cart-sauce-labs-bike-light")))
+        addToCart2 = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.ID, c.ADD_TO_CART_2)))
         addToCart2.click()
         assert cart.text == "2"
     #2. case = sepete doğru ürünler gidiyor mu ?
