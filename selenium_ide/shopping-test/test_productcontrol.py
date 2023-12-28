@@ -26,5 +26,6 @@ class TestProductcontrol():
     self.driver.find_element(By.ID, "password").click()
     self.driver.find_element(By.ID, "password").send_keys("secret_sauce")
     self.driver.find_element(By.ID, "login-button").click() 
-    self.vars["6"] = len(self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item:nth-child(1) > .inventory_item_description"))
+    self.vars["itemCount"] = len(self.driver.find_elements(By.XPATH, "//div[@id='inventory_container']/div/div/div[2]"))
+    assert(self.vars["itemCount"] == 6)
   
